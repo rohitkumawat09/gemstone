@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
+
 import "./Home.css";
 
 import gemPhone from "../assets/ganesh.png";
