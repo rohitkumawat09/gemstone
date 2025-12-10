@@ -1,17 +1,20 @@
-import Header from "./components/Header"
+import Header from "./components/Header";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
 
-import { Outlet } from 'react-router-dom';
-
-
-import  Footer from "./components/Footer"
- const First = () => {
+const First = () => {
   return (
     <>
-     <>
-      <Header />
+      <Header
+        openLogin={() => {}}
+        openRegister={() => {}}
+      />
+
       <Outlet />
+
       <Footer />
-    </></>
-  )
-}
-export default First
+    </>
+  );
+};
+
+export default First;
