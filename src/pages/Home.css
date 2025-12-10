@@ -1,0 +1,337 @@
+/* ================================
+   GLOBAL RESET
+==================================*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ================================
+   HERO SECTION
+==================================*/
+
+.hero-section {
+  background: linear-gradient(135deg, #0a0f14, #122830, #0a0f14);
+  padding: 90px 40px;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+/* BLUR BACKGROUND LIGHT */
+.hero-section::before,
+.hero-section::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  filter: blur(120px);
+  z-index: 0;
+}
+
+.hero-section::before {
+  background: #00ffaa44;
+  top: -60px;
+  left: -90px;
+}
+
+.hero-section::after {
+  background: #00eeeedd;
+  bottom: -90px;
+  right: -60px;
+}
+
+/* ================================
+   LEFT TEXT
+==================================*/
+
+.left-box {
+  z-index: 2;
+}
+
+.tag {
+  color: #8fffc3;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.tag-icon {
+  font-size: 22px;
+  color: #8fffc3;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #ffffff, #b0ffe3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #8fffc3;
+  text-shadow: 0 0 12px #8fffc377;
+}
+
+/* ================================
+   BUTTONS
+==================================*/
+
+.hero-btn,
+.hero-btn2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-icon {
+  font-size: 20px;
+}
+
+.hero-btn {
+  padding: 14px 32px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 255, 170, 0.25);
+  color: #fff;
+  border: 1px solid #00ffb3;
+  box-shadow: 0 0 18px #00ffb355;
+  transition: 0.3s ease-in-out;
+}
+
+.hero-btn:hover {
+  background: #00ffb3;
+  color: #0e141b;
+  transform: translateY(-3px);
+}
+
+.hero-btn2 {
+  margin-left: 12px;
+  padding: 14px 32px;
+  border-radius: 14px;
+  font-size: 18px;
+  color: #8fffc3;
+  border: 2px solid #8fffc3;
+  transition: 0.3s ease-in-out;
+}
+
+.hero-btn2:hover {
+  background: #8fffc3;
+  color: #0e141b;
+  transform: translateY(-3px);
+}
+
+/* ================================
+   STORE ICONS
+==================================*/
+
+.store-img {
+  width: 160px;
+  margin-right: 12px;
+  margin-top: 15px;
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+.store-img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ================================
+   SLIDER IMAGE (BIG, CLEAN, NO JUMP)
+==================================*/
+
+.slider-box {
+  width: 100%;
+  height: 520px;           /* 👈 BIG IMAGE HEIGHT */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-slider-image {
+  max-height: 100%;        /* Image always fits area */
+  width: auto;
+  object-fit: contain;
+  opacity: 0;
+  animation: fadeImage 3s linear infinite;
+  transition: opacity 0.5s ease-in-out;
+  filter: drop-shadow(0 0 25px #00ffcc55);
+}
+
+/* Fade + Blur Animation */
+@keyframes fadeImage {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+  }
+  20% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  80% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(15px);
+  }
+}
+
+/* ================================
+   SCROLL REVEAL
+==================================*/
+
+.reveal {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.fade-left {
+  transform: translateX(-80px);
+}
+.fade-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-right {
+  transform: translateX(80px);
+}
+.fade-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ================================
+   RESPONSIVE
+==================================*/
+
+@media (max-width: 992px) {
+  .title {
+    font-size: 48px;
+  }
+
+  .hero-section {
+    padding: 60px 25px;
+    text-align: center;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
+
+  .slider-box {
+    height: 380px;   /* Smaller for tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .slider-box {
+    height: 260px;  /* Perfect for small phones */
+  }
+
+  .store-img {
+    width: 135px;
+  }
+}
+/* ================================
+   POPUP OVERLAY (DARK BACKGROUND)
+==================================*/
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ================================
+   POPUP BOX (CENTER CARD)
+==================================*/
+.popup-box {
+  margin-top: 80px;
+  position: relative;
+  width: 520px;
+  max-width: 92%;
+  border-radius: 18px;
+  padding: 32px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 0 35px rgba(0, 255, 180, 0.18);
+  animation: popupScale 0.35s ease;
+  transform-origin: center;
+}
+
+/* Popup Opening Animation */
+@keyframes popupScale {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Overlay Fade Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ================================
+   CLOSE BUTTON (CROSS ICON)
+==================================*/
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 26px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.close-popup:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+
+/* ================================
+   RESPONSIVE POPUP
+==================================*/
+@media(max-width: 480px) {
+  .popup-box {
+    padding: 22px;
+    width: 92%;
+  }
+
+  .close-popup {
+    font-size: 22px;
+  }
+}
