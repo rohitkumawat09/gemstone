@@ -1,4 +1,3 @@
-import React from "react";
 import "./LoginForm.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";

@@ -1,4 +1,3 @@
-import React from "react";
 import "./RegisterForm.css";
 
 import { FcGoogle } from "react-icons/fc";
